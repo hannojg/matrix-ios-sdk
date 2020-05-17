@@ -798,6 +798,11 @@ typedef void (^MXOnBackgroundSyncFail)(NSError *error);
                      failure:(void (^)(NSError *error))failure NS_REFINED_FOR_SWIFT;
 
 /**
+ Creates (or gets an existing) room internally
+ */
+- (MXRoom *)getOrCreateRoom:(NSString *)roomId notify:(BOOL)notify
+
+/**
  Leave a room.
  
  The room will be removed from the rooms list.
