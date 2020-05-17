@@ -800,7 +800,7 @@ typedef void (^MXOnBackgroundSyncFail)(NSError *error);
 /**
  Creates (or gets an existing) room internally
  */
-- (MXRoom *)getOrCreateRoom:(NSString *)roomId notify:(BOOL)notify
+- (MXRoom *)getOrCreateRoom:(NSString *)roomId notify:(BOOL)notify;
 
 /**
  Leave a room.
