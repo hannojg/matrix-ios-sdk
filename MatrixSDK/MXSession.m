@@ -1857,7 +1857,7 @@ typedef void (^MXOnResumeDone)(void);
     // Wait to receive data from /sync about this room before returning
     if (success)
     {
-        if (room.summary.membership == MXMembershipJoin)
+        if (room.summary.membership == MXMembershipJoin || room.summary.membership == MXMembershipLeave)
         {
             // The /sync corresponding to this join may have happened before the
             // homeserver answer to the joinRoom request.
