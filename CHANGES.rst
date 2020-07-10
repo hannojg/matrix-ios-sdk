@@ -1,4 +1,4 @@
-Changes in Matrix iOS SDK in 0.16.6 (2020-05-xx)
+Changes in Matrix iOS SDK in 0.16.6 (2020-06-30)
 ================================================
 
 Improvements:
@@ -6,6 +6,7 @@ Improvements:
  * MXCrossSigning: Add the bootstrapWithAuthParams method.
  * MXRecoveryService: Create this service to manage keys we want to store in SSSS.
  * MXRecoveryService: Add deleteRecovery.
+ * MXRecoveryService: Add options to create and delete key backup automatically (vector-im/riot-ios/issues/3361).
  * MXSecretStorage: Add options to remove secrets and SSSS. 
  * MXWellKnown: Add JSONDictionary implementation to return original and extended data.
  * MXCrossSigning: Gossip the master key (vector-im/riot-ios/issues/3346).
@@ -14,8 +15,12 @@ Improvements:
 Bug fix:
  * MXSecretShareManager: Fix crash in cancelRequestWithRequestId (vector-im/riot-ios/issues/3272).
  * MXIdentityService: Fix crash in handleHTTPClientError (vector-im/riot-ios/issues/3273).
+ * MXSession: Add ignoreSessionState to backgroundSync method.
+ * MXCreateRoomReponse: Remove undocumented roomAlias property (vector-im/riot-ios/issues/3300).
  * MXDeviceList: Fix crash in refreshOutdatedDeviceLists (vector-im/riot-ios/issues/3118).
+ * MXPushRuleSenderNotificationPermissionConditionChecker & MXPushRuleRoomMemberCountConditionChecker: Remove redundant room check (vector-im/riot-ios/issues/3354).
  * MXDeviceListOperationsPool: Fix current device verification status put in MXDeviceUnknown instead of MXDeviceVerified (vector-im/riot-ios/issues/3343).
+ * MXSDKOptions: Introduce enableKeyBackupWhenStartingMXCrypto option (vector-im/riot-ios/issues/3371).
 
 API break:
  * MXCrossSigning: Removed MXCrossSigningStateCanCrossSignAsynchronously.
@@ -27,6 +32,12 @@ Improvements:
  * MXSession: Update account data as soon as the endpoint returns.
  * MXSecretStorage: Add this class to support SSSS ([MSC1946(]https://github.com/matrix-org/matrix-doc/pull/1946).
  * SAS verification: Support new key agreement.
+ * MatrixSDK/JingleCallStack: Update Jitsi Meet dependency to ~> 2.8.1 and upgrade the minimal iOS version to 11.0 because the Jitsi Meet framework requires it.
+ * MXCallAudioSessionConfigurator: Add `configureAudioSessionAfterCallEnds` method.
+ * MXCallKitAdapter: Move incoming audio configuration in `performAnswerCallAction` as recommended. Handle audio session configuration after call ends.
+ 
+ Bug fix:
+ * MXJingleCallAudioSessionConfigurator: Handle RTCAudioSession manually, enable audio when needed. Fix outgoing audio issue after consecutive incoming calls.
 
 Changes in Matrix iOS SDK in 0.16.4 (2020-05-07)
 ================================================
